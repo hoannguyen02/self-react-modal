@@ -2,7 +2,7 @@ import React from 'react';
 import './overlay.css';
 
 const Overlay = (props) => {
-  const { title, onClose, children, footer, open } = props;
+  const { title, onClose, children, footer, open, onSubmit } = props;
   return (
     <div className={`modal__dialog ${open ? 'open' : ''}`}>
       <div className="modal__content">
@@ -12,8 +12,12 @@ const Overlay = (props) => {
             <span>×</span>
           </button>
         </div>
-        <div className="modal__body">{children}</div>
-        <div className="modal__footer">{footer}</div>
+        <form
+          onSubmit={onSubmit ? onSubmit : (event) => event.preventDefault()}
+        >
+          <div className="modal__body">{children}</div>
+          <div className="modal__footer">{footer}</div>
+        </form>
       </div>
     </div>
   );
