@@ -1,24 +1,29 @@
 import React from 'react';
-import './modal.css';
+import Overlay from './Overlay';
+import Backdrop from './Backdrop';
 
-const Modal = (props) => {
-  const { footer, children, title, open, onClose } = props;
-  return (
-    <div className={`modal fade ${open ? 'show' : ''}`}>
-      <div className="modal__dialog">
-        <div className="modal__content">
-          <div className="modal__header">
-            {title && <h5 className="modal__title">{title}</h5>}
-            <button type="button" className="close" onClick={onClose}>
-              <span>×</span>
-            </button>
-          </div>
-          <div className="modal__body">{children}</div>
-          <div className="modal__footer">{footer}</div>
-        </div>
+export default class Modal extends React.Component {
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeydown, false);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeydown, false);
+  }
+
+  handleKeydown = (e) => {
+    const { onClose } = this.props;
+    if (e.keyCode === 27) {
+      onClose && onClose();
+    }
+  };
+
+  render() {
+    const { open, onClose } = this.props;
+    return (
+      <div className="modal">
+        <Backdrop open={open} onClose={onClose} />
+        <Overlay {...this.props} />
       </div>
-    </div>
-  );
-};
-
-export default Modal;
+    );
+  }
+}

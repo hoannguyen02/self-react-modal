@@ -19,6 +19,7 @@ function App() {
       <button onClick={handleOpenModal}>Open</button>
       <Modal
         open={openModal}
+        onClose={handleCloseModal}
         footer={<button onClick={handleCloseModal}>Close</button>}
       >
         There was some specs such as styles without flex, state full component
