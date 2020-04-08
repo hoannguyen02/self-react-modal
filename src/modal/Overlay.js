@@ -3,6 +3,11 @@ import './overlay.css';
 
 const Overlay = (props) => {
   const { title, onClose, children, footer, open, onSubmit } = props;
+  const handleSubmit = (event) => {
+    onSubmit && onSubmit(event);
+    event.preventDefault();
+  };
+
   return (
     <div className={`modal__dialog ${open ? 'open' : ''}`}>
       <div className="modal__content">
@@ -16,9 +21,7 @@ const Overlay = (props) => {
             ×
           </button>
         </div>
-        <form
-          onSubmit={onSubmit ? onSubmit : (event) => event.preventDefault()}
-        >
+        <form onSubmit={handleSubmit}>
           <div className="modal__body">{children}</div>
           {footer && <div className="modal__footer">{footer}</div>}
         </form>
