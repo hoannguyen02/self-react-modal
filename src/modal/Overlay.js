@@ -1,5 +1,5 @@
 import React from 'react';
-import './overlay.css';
+import './Overlay.css';
 
 const Overlay = (props) => {
   const { title, onClose, children, footer, open, onSubmit } = props;

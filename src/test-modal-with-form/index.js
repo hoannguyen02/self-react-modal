@@ -28,8 +28,34 @@ export default class TestModalWithForm extends React.Component {
 
     return (
       <Modal open={open} onClose={handleClose} onSubmit={handleSubmit}>
-        There was some specs such as styles without flex, state full component
-        with class
+        <p>
+          There was some specs such as styles without flex, state full component
+          with class
+        </p>
+        <p>
+          There was some specs such as styles without flex, state full component
+          with class
+        </p>
+        <p>
+          There was some specs such as styles without flex, state full component
+          with class
+        </p>
+        <p>
+          There was some specs such as styles without flex, state full component
+          with class
+        </p>
+        <p>
+          There was some specs such as styles without flex, state full component
+          with class
+        </p>
+        <p>
+          There was some specs such as styles without flex, state full component
+          with class
+        </p>
+        <p>
+          There was some specs such as styles without flex, state full component
+          with class
+        </p>
         <div>
           <input type="email" value={email} onChange={handleEmailChange} />
           <button type="submit">Submit</button>

@@ -1,8 +1,9 @@
 .modal__dialog {
-  position: relative;
+  position: absolute;
   width: auto;
-  margin: 0.5rem;
+  top: 10%;
   pointer-events: none;
+  visibility: hidden;
   transition: all 0.3s ease-out;
   transform: translate(0, -50px);
   opacity: 0;
@@ -12,6 +13,7 @@
 .modal__dialog.open {
   transform: none;
   opacity: 1;
+  visibility: visible;
 }
 
 .modal__content {
@@ -60,6 +62,7 @@
 @media (min-width: 576px) {
   .modal__dialog {
     max-width: 600px;
-    margin: 100px auto 1.75rem;
+    top: 10%;
+    left: calc(50% - 300px);
   }
 }
