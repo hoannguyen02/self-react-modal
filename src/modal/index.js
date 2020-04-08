@@ -6,6 +6,7 @@ export default class Modal extends React.Component {
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeydown, false);
   }
+
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeydown, false);
   }
